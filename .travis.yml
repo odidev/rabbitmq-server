@@ -1,7 +1,6 @@
 # vim:sw=2:et:
 
-os: linux
-dist: xenial
+
 language: elixir
 notifications:
   email:
@@ -25,11 +24,24 @@ env:
     - base_rmq_ref=master
 
 elixir:
-  - '1.9'
+  - '1.10.4'
 otp_release:
   - '21.3'
   - '22.2'
 
+jobs:
+  - arch: amd64
+  - arch: arm64 
+    elixir: '1.10.4'
+    otp_release: '22.3'
+  - os: linux
+    dist: focal
+    sudo: required
+    group: edge
+    arch: arm64-graviton2
+    virt: vm
+    elixir: '1.10.4'
+    otp_release: '22.3'
 install:
   # This project being an Erlang one (we just set language to Elixir
   # to ensure it is installed), we don't want Travis to run mix(1)
