@@ -30,10 +30,7 @@ otp_release:
   - '22.2'
 
 jobs:
-  - arch: arm64
-    dist: focal
-    elixir: '1.10.4'
-    otp_release: '22.3'
+  - arch: amd64
   - os: linux
     dist: focal
     sudo: required
